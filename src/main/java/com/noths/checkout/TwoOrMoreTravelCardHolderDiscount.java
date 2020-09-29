@@ -8,7 +8,7 @@ public class TwoOrMoreTravelCardHolderDiscount implements Discount {
     private static final double REDUCED_TRAVEL_CARD_HOLDER_PRICE = 8.5;
 
     @Override
-    public double apply(List<Product> items) {
+    public double apply(List<Product> items, double subtotal) {
         long numOfTravelCardHolders = items.stream()
                 .filter(item -> item.getCode().equals(Product.TRAVEL_CARD_HOLDER.getCode()))
                 .count();
