@@ -2,7 +2,6 @@ package com.noths.checkout;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 public class Checkout {
@@ -25,7 +24,7 @@ public class Checkout {
     public double total() {
         double total = items.stream().mapToDouble(Product::getPrice).sum();
         for (Discount discount : discounts) {
-            total -= discount.apply(items, total);
+            total -= discount.calculate(items, total);
         }
         return total;
     }

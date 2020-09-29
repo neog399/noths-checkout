@@ -3,5 +3,5 @@ package com.noths.checkout;
 import java.util.List;
 
 public interface Discount {
-    double apply(List<Product> items, double subtotal);
+    double calculate(List<Product> items, double subtotal);
 }

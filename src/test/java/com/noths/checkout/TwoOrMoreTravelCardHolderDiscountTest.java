@@ -13,7 +13,7 @@ public class TwoOrMoreTravelCardHolderDiscountTest {
 
     @Test
     public void returnsZeroIfNoItemsWereGiven() {
-        assertEquals(0.0, discount.apply(Collections.emptyList(), 0.0), 0.1);
+        assertEquals(0.0, discount.calculate(Collections.emptyList(), 0.0), 0.1);
     }
 
     @Test
@@ -22,7 +22,7 @@ public class TwoOrMoreTravelCardHolderDiscountTest {
                 new Product("9999", "item name", 25.0),
                 new Product("9998", "item name", 25.0)
         );
-        assertEquals(0.0, discount.apply(items, 0.0), 0.1);
+        assertEquals(0.0, discount.calculate(items, 0.0), 0.1);
     }
 
     @Test
@@ -32,7 +32,7 @@ public class TwoOrMoreTravelCardHolderDiscountTest {
                 Product.TRAVEL_CARD_HOLDER,
                 new Product("0000", "item name", 25.0)
         );
-        assertEquals(0.0, discount.apply(items, 0.0), 0.1);
+        assertEquals(0.0, discount.calculate(items, 0.0), 0.1);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class TwoOrMoreTravelCardHolderDiscountTest {
                 new Product("0000", "item name", 25.0),
                 Product.TRAVEL_CARD_HOLDER
         );
-        assertEquals(1.5, discount.apply(items, 0.0), 0.1);
+        assertEquals(1.5, discount.calculate(items, 0.0), 0.1);
     }
 
     @Test
@@ -55,6 +55,6 @@ public class TwoOrMoreTravelCardHolderDiscountTest {
                 Product.TRAVEL_CARD_HOLDER,
                 Product.TRAVEL_CARD_HOLDER
         );
-        assertEquals(2.25, discount.apply(items, 0.0), 0.1);
+        assertEquals(2.25, discount.calculate(items, 0.0), 0.1);
     }
 }
