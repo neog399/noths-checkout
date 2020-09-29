@@ -9,6 +9,10 @@ public class Checkout {
     // Or make this list thread safe (i.e. synchronize it or use an implementation that locks internally)
     private final List<Product> items = new ArrayList<>();
 
+    public Checkout(Discount... discounts) {
+        // TODO: implement
+    }
+
     public void scan(Product item) {
         items.add(item);
     }

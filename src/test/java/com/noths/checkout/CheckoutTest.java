@@ -26,4 +26,35 @@ public class CheckoutTest {
         checkout.scan(Product.KIDS_T_SHIRT);
         assertEquals(83.45, checkout.total(), 0.1);
     }
+
+    @Test
+    public void returnsSumOfAllItemsScannedWithDiscountsApplied() {
+        Checkout checkout = new Checkout(
+                new TenPctOffOver60Discount(),
+                new TwoOrMoreTravelCardHolderDiscount()
+        );
+        checkout.scan(Product.TRAVEL_CARD_HOLDER);
+        checkout.scan(Product.PERSONALIZED_CUFFLINKS);
+        checkout.scan(Product.KIDS_T_SHIRT);
+        assertEquals(66.78, checkout.total(), 0.1);
+
+        checkout = new Checkout(
+                new TenPctOffOver60Discount(),
+                new TwoOrMoreTravelCardHolderDiscount()
+        );
+        checkout.scan(Product.TRAVEL_CARD_HOLDER);
+        checkout.scan(Product.KIDS_T_SHIRT);
+        checkout.scan(Product.TRAVEL_CARD_HOLDER);
+        assertEquals(36.95, checkout.total(), 0.1);
+
+        checkout = new Checkout(
+                new TenPctOffOver60Discount(),
+                new TwoOrMoreTravelCardHolderDiscount()
+        );
+        checkout.scan(Product.TRAVEL_CARD_HOLDER);
+        checkout.scan(Product.PERSONALIZED_CUFFLINKS);
+        checkout.scan(Product.TRAVEL_CARD_HOLDER);
+        checkout.scan(Product.KIDS_T_SHIRT);
+        assertEquals(73.76, checkout.total(), 0.1);
+    }
 }
