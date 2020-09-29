@@ -30,8 +30,8 @@ public class CheckoutTest {
     @Test
     public void returnsSumOfAllItemsScannedWithDiscountsApplied() {
         Checkout checkout = new Checkout(
-                new TenPctOffOver60Discount(),
-                new TwoOrMoreTravelCardHolderDiscount()
+                new TwoOrMoreTravelCardHolderDiscount(),
+                new TenPctOffOver60Discount()
         );
         checkout.scan(Product.TRAVEL_CARD_HOLDER);
         checkout.scan(Product.PERSONALIZED_CUFFLINKS);
@@ -39,8 +39,8 @@ public class CheckoutTest {
         assertEquals(66.78, checkout.total(), 0.1);
 
         checkout = new Checkout(
-                new TenPctOffOver60Discount(),
-                new TwoOrMoreTravelCardHolderDiscount()
+                new TwoOrMoreTravelCardHolderDiscount(),
+                new TenPctOffOver60Discount()
         );
         checkout.scan(Product.TRAVEL_CARD_HOLDER);
         checkout.scan(Product.KIDS_T_SHIRT);
@@ -48,8 +48,8 @@ public class CheckoutTest {
         assertEquals(36.95, checkout.total(), 0.1);
 
         checkout = new Checkout(
-                new TenPctOffOver60Discount(),
-                new TwoOrMoreTravelCardHolderDiscount()
+                new TwoOrMoreTravelCardHolderDiscount(),
+                new TenPctOffOver60Discount()
         );
         checkout.scan(Product.TRAVEL_CARD_HOLDER);
         checkout.scan(Product.PERSONALIZED_CUFFLINKS);
